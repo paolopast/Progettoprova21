@@ -1,4 +1,6 @@
 <?php
+  include_once __DIR__ . '/libs/csrf/csrfprotector.php'; // FIXED
+  csrfProtector::init();
 //avvio sessione
 	session_start();
 	if($_SESSION['loginlev'] !== 1)
@@ -61,4 +63,4 @@
 }
 ?>
 </body>
-</html>
+</html>

@@ -1,4 +1,6 @@
 <?php
+  include_once __DIR__ . '/libs/csrf/csrfprotector.php'; // FIXED
+  csrfProtector::init();
 //avvio sessione
 	session_start();
 	if($_SESSION['loginlev'] !== 1)
@@ -64,20 +66,13 @@
 		$sede_id = $_POST['sede_id'];
 	
 	//esecuzione query
-if (isset($_SERVER[‘HTTP_REFERER’]) && $_SERVER[‘HTTP_REFERER’]!=””)
-  {
-  if (strpos($_SERVER['HTTP_REFERER'],$_SERVER['HTTP_HOST'])===false)
-    {
-    echo "accesso negato";
-    }
-  }
-  else{
+
 	$stmt = $PDO->prepare( 'UPDATE evento SET titolo = ?, descrizione = ?, data = ?, sede_id = ? WHERE id = ?');
 	$stmt->execute( array($titolo,$descrizione,$data, $sede_id, $_GET['id']));
 
 header('location: gestEv.php');
-}
+
 
 ?>
 </body>
-</html>
+</html>

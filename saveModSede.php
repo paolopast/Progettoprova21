@@ -1,4 +1,6 @@
 <?php
+  include_once __DIR__ . '/libs/csrf/csrfprotector.php'; // FIXED
+  csrfProtector::init();
 //avvio sessione
 	session_start();
 	if($_SESSION['loginlev'] !== 1)
@@ -85,4 +87,4 @@ if (isset($_SERVER[‘HTTP_REFERER’]) && $_SERVER[‘HTTP_REFERER’]!=””)
 	$stmt->execute( array($nome,$citta,$indirizzo, $numTelefono, $_GET['id']));
 	
 header('location: gestSedi.php');
-}
+}

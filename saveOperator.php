@@ -1,4 +1,6 @@
 <?php
+  include_once __DIR__ . '/libs/csrf/csrfprotector.php'; // FIXED
+  csrfProtector::init();
 //avvio sessione
 	session_start();
 	if($_SESSION['loginlev'] !== 1)
@@ -93,4 +95,4 @@ echo "La password per l'utente appena registrato e': ".$password;
 
 ?>
 </body>
-</html>
+</html>

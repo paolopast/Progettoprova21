@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+  include_once __DIR__ . '/libs/csrf/csrfprotector.php'; // FIXED
+  csrfProtector::init();
 
 	if($_SESSION['loginlev'] !== 1)
 		header('location: missAutentication.php');
@@ -20,5 +21,5 @@ session_start();
 	$sql->bindParam(':id', $id);
 	$sql->execute();
     }
-}
-?>
+
+?>

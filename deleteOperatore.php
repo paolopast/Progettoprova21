@@ -1,4 +1,7 @@
 <?php
+
+  include_once __DIR__ . '/libs/csrf/csrfprotector.php'; // FIXED
+  csrfProtector::init();
 	session_start();
 	if($_SESSION['loginlev'] !== 1)
 		header('location: missAutentication.php');
@@ -21,4 +24,4 @@ $sql = $db->prepare('DELETE FROM operatoremuseo WHERE username = :username');
 $sql->bindParam(':username', $username);
 $sql->execute();
 }
-?>
+?>
