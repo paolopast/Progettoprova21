@@ -1,8 +1,7 @@
 <?php
-
-  include_once __DIR__ . '/libs/csrf/csrfprotector.php'; // FIXED
-  csrfProtector::init();
 	session_start();
+    require('csrfpphplibrary/libs/csrf/csrfprotector.php');
+csrfProtector::init();
 	if($_SESSION['loginlev'] !== 1 && $_SESSION['loginlev'] !== 2)
 		header('location: missAutentication.php');
 	$id = $_GET['id'];
@@ -21,4 +20,4 @@ $sql = $db->prepare('DELETE FROM opera WHERE id = :id');
 $sql->bindParam(':id', $id);
 $sql->execute();
 }
-?>
+?>

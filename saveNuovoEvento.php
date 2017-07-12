@@ -1,10 +1,10 @@
 <?php
-  include_once __DIR__ . '/libs/csrf/csrfprotector.php'; // FIXED
-  csrfProtector::init();
 //avvio sessione
 	session_start();
 	if($_SESSION['loginlev'] !== 1)
 		header('location: missAutentication.php');
+        require('csrfpphplibrary/libs/csrf/csrfprotector.php');
+csrfProtector::init();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -62,4 +62,4 @@ $stmt = $PDO->prepare( 'INSERT INTO evento (data,titolo,descrizione,sede_id) VAL
 }
 ?>
 </body>
-</html>
+</html>

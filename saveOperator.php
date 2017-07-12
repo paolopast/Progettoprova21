@@ -1,10 +1,10 @@
 <?php
-  include_once __DIR__ . '/libs/csrf/csrfprotector.php'; // FIXED
-  csrfProtector::init();
 //avvio sessione
 	session_start();
 	if($_SESSION['loginlev'] !== 1)
 		header('location: missAutentication.php');
+        require('csrfpphplibrary/libs/csrf/csrfprotector.php');
+csrfProtector::init();
 ?>
 
 
@@ -85,8 +85,7 @@
     }
   }
   else{
-	$sql = "INSERT INTO operatoremuseo(nome,cognome,cf,dataNascita,ammministratore,citta, sede_id, username,password,email,telefono) VALUES(".$PDO->quote($nome).",".$PDO->quote($cognome).",".$PDO->quote($cf).",".$PDO->quote($dataN).",".$PDO->quote($amministratore).",".$PDO->quote($citta).",".$PDO->quote($sede_id).",".$PDO->quote($username).",".$PDO->quote($password).",".$PDO->quote($email).",".$PDO->quote($telefono).");";
-	$stmt = $PDO->prepare('INSERT INTO operatoremuseo(nome, cognome, cf, dataNascita, ammministratore, citta, sede_id, username, password, email, telefono) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+		$stmt = $PDO->prepare('INSERT INTO operatoremuseo(nome, cognome, cf, dataNascita, ammministratore, citta, sede_id, username, password, email, telefono) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
 	$stmt->execute( array($nome,$cognome,$cf, $dataNascita, $ammministratore, $citta, $sede_id, $username, $password, $email, $telefono));
 
 echo "La password per l'utente appena registrato e': ".$password;
@@ -95,4 +94,4 @@ echo "La password per l'utente appena registrato e': ".$password;
 
 ?>
 </body>
-</html>
+</html>
