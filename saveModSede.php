@@ -23,8 +23,7 @@
     {
 		$strdest = 'modSede.php?err=1&id='.$_GET['id'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 21);
-        if(is_numeric(substr(rawurldecode($strdest), 21)) === true)
+        if(is_string(substr(rawurldecode($strdest), 21)) === true && is_numeric(substr(rawurldecode($strdest), 21)) === true)
         {
         	header('location: '.rawurldecode($strdest));
        		
@@ -40,8 +39,7 @@
     {
 		$strdest = 'modSede.php?err=1&id='.$_GET['id'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 21);
-        if(is_numeric(substr(rawurldecode($strdest), 21)) === true)
+        if(is_string(substr(rawurldecode($strdest), 21)) === true && is_numeric(substr(rawurldecode($strdest), 21)) === true)
         {
         	header('location: '.rawurldecode($strdest));
        		
@@ -62,8 +60,7 @@
     {
 		$strdest = 'modSede.php?err=1&id='.$_GET['id'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 21);
-        if(is_numeric(substr(rawurldecode($strdest), 21)) === true)
+        if(is_string(substr(rawurldecode($strdest), 21)) === true && is_numeric(substr(rawurldecode($strdest), 21)) === true)
         {
         	header('location: '.rawurldecode($strdest));
        		

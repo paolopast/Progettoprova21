@@ -23,12 +23,8 @@
     {
 		$strdest = 'modEv.php?err=1&id='.$_GET['id'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 19);
-        if(is_numeric(substr(rawurldecode($strdest), 19)) === true)
-        {
+        if(is_string(substr(rawurldecode($strdest), 19)) === true && is_numeric(substr(rawurldecode($strdest), 19)) === true)
         	header('location: '.rawurldecode($strdest));
-       		
-        }
    		else
     		echo "error";
         return;	
@@ -40,12 +36,8 @@
     {
 		$strdest = 'modEv.php?err=1&id='.$_GET['id'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 19);
-        if(is_numeric(substr(rawurldecode($strdest), 19)) === true)
-        {
+        if(is_string(substr(rawurldecode($strdest), 19)) === false && is_numeric(substr(rawurldecode($strdest), 19)) === true)
         	header('location: '.rawurldecode($strdest));
-       		
-        }
    		else
     		echo "error";
        return;	
@@ -62,12 +54,8 @@
     {
 		$strdest = 'modEv.php?err=1&id='.$_GET['id'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 19);
-        if(is_numeric(substr(rawurldecode($strdest), 19)) === true)
-        {
+        if(is_string(substr(rawurldecode($strdest), 19)) === false && is_numeric(substr(rawurldecode($strdest), 19)) === true)
         	header('location: '.rawurldecode($strdest));
-
-        }
    		else
     		echo "error";  
        	return;	

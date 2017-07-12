@@ -26,7 +26,6 @@
     {
 		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 27);
         if(is_string(substr(rawurldecode($strdest), 27)) === true)
         	header('location: '.rawurldecode($strdest));
         return;
@@ -43,7 +42,6 @@
     {
 		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 27);
         if(is_string(substr(rawurldecode($strdest), 27)) === true)
         	header('location: '.rawurldecode($strdest));
         return;
@@ -55,7 +53,6 @@
     {
 		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 27);
         if(is_string(substr(rawurldecode($strdest), 27)) === true)
         	header('location: '.rawurldecode($strdest));
         return;
@@ -72,7 +69,6 @@
     {
 		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 27);
         if(is_string(substr(rawurldecode($strdest), 27)) === true)
         	header('location: '.rawurldecode($strdest));
         return;
@@ -84,7 +80,6 @@
     {
 		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 27);
         if(is_string(substr(rawurldecode($strdest), 27)) === true)
         	header('location: '.rawurldecode($strdest));
         return;
@@ -101,7 +96,6 @@
     {
 		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
         $strdest = rawurlencode($strdest);
-        echo substr(rawurldecode($strdest), 27);
         if(is_string(substr(rawurldecode($strdest), 27)) === true)
         	header('location: '.rawurldecode($strdest));
         return;
