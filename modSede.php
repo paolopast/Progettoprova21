@@ -64,20 +64,20 @@
 		$res = $mysqli->query("SELECT * FROM sede WHERE id = ".$_GET['id']);
 		$row = $res->fetch_assoc();
     ?>
-    	<div class = 'titlebox'>Modifica la sede: <?php echo $row['nome'] ?></div>
+    	<div class = 'titlebox'>Modifica la sede: <?php echo htmlspecialchars($row['nome']) ?></div>
 	<?php
         if(isset($_GET['err'])===true)
 			echo "Inserisci i valori obbligatori";
     ?> 
-    	<form name = 'modify' action = 'saveModSede.php?id=<?php echo $_GET['id']?>' method = 'POST'>
+    	<form name = 'modify' action = 'saveModSede.php?id=<?php echo htmlspecialchars($_GET['id'])?>' method = 'POST'>
     	<label>Nome*:</label><br/>
-   		<input name = 'nome' rows 1 value = '<?php echo $row['nome']?>'><br/><br/>
+   		<input name = 'nome' rows 1 value = '<?php echo htmlspecialchars($row['nome'])?>'><br/><br/>
     	<label>Citt&#224:</label><br/>
-    	<input name = 'citta' rows = 1 value ='<?php echo $row['citta']?>'><br/><br/>
+    	<input name = 'citta' rows = 1 value ='<?php echo htmlspecialchars($row['citta'])?>'><br/><br/>
         <label>Indirizzo*:</label><br/>
-    	<input name = 'indirizzo' value = '<?php echo $row['indirizzo'] ?>'><br/><br/>
+    	<input name = 'indirizzo' value = '<?php echo htmlspecialchars($row['indirizzo']) ?>'><br/><br/>
         <label>Numero telefono*:</label><br/>
-    	<input name = 'numTelefono' value = '<?php echo $row['numTelefono'] ?>'><br/><br/>	
+    	<input name = 'numTelefono' value = '<?php echo htmlspecialchars($row['numTelefono']) ?>'><br/><br/>	
 		<button type='submit'>Salva Modifiche</button>
 
     	</form>		

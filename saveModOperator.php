@@ -21,17 +21,15 @@
 	//dichiarazione variabili
 	//dichiarazione variabili
 	//Si fanno dei controlli per assicurarsi che nel caso in cui non sia stato inserito nulla si possa mettere il valore NULL nel database
-	
+    
 	if($_POST['email'] === '')
     {
-    	if(is_string($_GET['username']))
-        {
-			$strdest = 'modSede.php?err=1&username='.$_GET['username'];
-        	$strdest = rawurlencode($strdest);
+		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
+        $strdest = rawurlencode($strdest);
+        echo substr(rawurldecode($strdest), 27);
+        if(is_string(substr(rawurldecode($strdest), 27)) === true)
         	header('location: '.rawurldecode($strdest));
-        }
-        else
-        echo "error";
+        return;
     }
 	else
 		$email = $_POST['email'];
@@ -43,28 +41,24 @@
 		
 	if($_POST['nome'] === '')
     {
-    	if(is_string($_GET['username']))
-        {
-			$strdest = 'modSede.php?err=1&username='.$_GET['username'];
-        	$strdest = rawurlencode($strdest);
+		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
+        $strdest = rawurlencode($strdest);
+        echo substr(rawurldecode($strdest), 27);
+        if(is_string(substr(rawurldecode($strdest), 27)) === true)
         	header('location: '.rawurldecode($strdest));
-        }
-        else
-        echo "error";
+        return;
     }
 	else
 		$nome = $_POST['nome'];
 	
 	if($_POST['cognome'] === '')
     {
-    	if(is_string($_GET['username']))
-        {
-			$strdest = 'modSede.php?err=1&username='.$_GET['username'];
-        	$strdest = rawurlencode($strdest);
+		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
+        $strdest = rawurlencode($strdest);
+        echo substr(rawurldecode($strdest), 27);
+        if(is_string(substr(rawurldecode($strdest), 27)) === true)
         	header('location: '.rawurldecode($strdest));
-        }
-        else
-        echo "error";
+        return;
     }
 	else
 		$cognome = $_POST['cognome'];
@@ -76,24 +70,24 @@
 	
 	if($_POST['dataN'] === '')
     {
-    	if(is_string($_GET['username']))
-        {
-			$strdest = 'modSede.php?err=1&username='.$_GET['username'];
-        	$strdest = rawurlencode($strdest);
+		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
+        $strdest = rawurlencode($strdest);
+        echo substr(rawurldecode($strdest), 27);
+        if(is_string(substr(rawurldecode($strdest), 27)) === true)
         	header('location: '.rawurldecode($strdest));
-        }
-        else
-        echo "error";
+        return;
     }
 	else
 		$dataN = $_POST['dataN'];
 	
 	if($_POST['amministratore'] !== 'true' && $_POST['amministratore'] !== 'false' )
-	{
+    {
 		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
         $strdest = rawurlencode($strdest);
-        header('location: '.rawurldecode($strdest));
-    	return;
+        echo substr(rawurldecode($strdest), 27);
+        if(is_string(substr(rawurldecode($strdest), 27)) === true)
+        	header('location: '.rawurldecode($strdest));
+        return;
     }
 	else
 		$amministratore = $_POST['amministratore'];
@@ -104,11 +98,13 @@
 		$citta = $_POST['citta'];
 		
 	if($_POST['sede_id'] === '')
-	{
+    {
 		$strdest = 'modOperator.php?err=1&username='.$_GET['username'];
         $strdest = rawurlencode($strdest);
-        header('location: '.rawurldecode($strdest));
-    	return;
+        echo substr(rawurldecode($strdest), 27);
+        if(is_string(substr(rawurldecode($strdest), 27)) === true)
+        	header('location: '.rawurldecode($strdest));
+        return;
     }
 	else
 		$sede_id = $_POST['sede_id'];
@@ -116,8 +112,7 @@
 	$stmt = $PDO->prepare( 'UPDATE operatoremuseo SET nome = ?, cognome = ?, cf = ?, dataNascita = ?, ammministratore = ?, citta = ?, sede_id = ?, email = ?, telefono = ? WHERE username = ?');
 	$stmt->execute( array($nome,$cognome,$cf, $dataN, $amministratore, $citta, $sede_id, $email, $telefono, $_GET['username']));
 
-	
-	header('location: gestOperatori.php');
+
 
 
 ?>

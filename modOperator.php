@@ -67,7 +67,7 @@
 		$res2 =$mysqli->query("SELECT * FROM sede");
 		$row = $res->fetch_assoc();
     ?>
-    	<div class = 'titlebox'>Modifica dati di <?php echo  $row['nome']." ".$row['cognome']?></div>
+    	<div class = 'titlebox'>Modifica dati di <?php echo  htmlspecialchars($row['nome']." ".$row['cognome'])?></div>
     <?php
         if(isset($_GET['err'])===true)
 			echo "Inserisci i valori obbligatori";

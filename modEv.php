@@ -69,7 +69,7 @@ confirm(<a href="deleteEv.php">Vuoi procedere con la cancellazione </a>)
 		$res2 =$mysqli->query("SELECT * FROM sede");
 		$row = $res->fetch_assoc();
     ?> 
-        <div class = 'titlebox'><?php echo $row['titolo'] ?></div>
+        <div class = 'titlebox'><?php echo htmlspecialchars($row['titolo']) ?></div>
         <?php
         if(isset($_GET['err'])===true)
 			echo "Inserisci i valori obbligatori";
@@ -79,7 +79,7 @@ confirm(<a href="deleteEv.php">Vuoi procedere con la cancellazione </a>)
     	<label>Titolo evento*:</label>
    		<input name = 'titolo' rows 1 value ='<?php echo $row['titolo']?>'><br/><br/>
     	<label>Descrizione:</label>
-    	<textarea name = 'descrizione' rows = 10 col = 50><?php echo $row['descrizione']?></textarea><br/><br/>
+    	<textarea name = 'descrizione' rows = 10 col = 50><?php echo htmlspecialchars($row['descrizione'])?></textarea><br/><br/>
         <label>Data*:</label>
     	<input type= 'text' name = 'data' value = '<?php echo $row['data']?>'/><br/><br/>
     	

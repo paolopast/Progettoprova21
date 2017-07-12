@@ -98,7 +98,7 @@ function printInfoOpera($id)
 			  $res = $mysqli->query("SELECT* FROM opera WHERE id = ".$id);
 			  while($row = $res->fetch_assoc())
 			  {
-				  ?>"<b><h2><?php echo $row['nome'] ?></h2></b><br/>
+				  ?>"<b><h2><?php echo htmlspecialchars($row['nome']) ?></h2></b><br/>
 				  <?php
 				  if($row['urlFoto'] !== null)
 				  {

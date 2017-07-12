@@ -21,28 +21,34 @@
 	//dichiarazione variabili
 	if($_POST['nome'] === '')
     {
-    	if(is_numeric($_GET['id']))
+		$strdest = 'modSede.php?err=1&id='.$_GET['id'];
+        $strdest = rawurlencode($strdest);
+        echo substr(rawurldecode($strdest), 21);
+        if(is_numeric(substr(rawurldecode($strdest), 21)) === true)
         {
-			$strdest = 'modSede.php?err=1&id='.$_GET['id'];
-        	$strdest = rawurlencode($strdest);
         	header('location: '.rawurldecode($strdest));
+       		
         }
-        else
-        echo "error";
+   		else
+    		echo "error";
+        return;	
     }
 	else
 		$nome = $_POST['nome'];
 		
 	if($_POST['indirizzo'] === '')
     {
-    	if(is_numeric($_GET['id']))
+		$strdest = 'modSede.php?err=1&id='.$_GET['id'];
+        $strdest = rawurlencode($strdest);
+        echo substr(rawurldecode($strdest), 21);
+        if(is_numeric(substr(rawurldecode($strdest), 21)) === true)
         {
-			$strdest = 'modSede.php?err=1&id='.$_GET['id'];
-        	$strdest = rawurlencode($strdest);
         	header('location: '.rawurldecode($strdest));
+       		
         }
-        else
-        echo "error";
+   		else
+    		echo "error";
+        return;	
     }
 	else
 		$indirizzo = $_POST['indirizzo'];
@@ -54,14 +60,17 @@
 	
 	if($_POST['numTelefono'] === '')
     {
-    	if(is_numeric($_GET['id']))
+		$strdest = 'modSede.php?err=1&id='.$_GET['id'];
+        $strdest = rawurlencode($strdest);
+        echo substr(rawurldecode($strdest), 21);
+        if(is_numeric(substr(rawurldecode($strdest), 21)) === true)
         {
-			$strdest = 'modSede.php?err=1&id='.$_GET['id'];
-        	$strdest = rawurlencode($strdest);
         	header('location: '.rawurldecode($strdest));
+       		
         }
-        else
-        echo "error";
+   		else
+    		echo "error";
+        return;	
     }
 	else
 		$numTelefono = $_POST['numTelefono'];

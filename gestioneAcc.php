@@ -74,7 +74,7 @@
 		In questa pagina potrai modificare il tuo indirizzo email o la tua password<br/><br/>
     	<form name = 'modify' action = 'saveModAccount.php' method = 'POST'>
     	<label>E-mail*:</label><br/>
-   		<input name = 'email' rows 1 value = '<?php echo $row['email']?>'><br/><br/>
+   		<input name = 'email' rows 1 value = '<?php echo htmlspecialchars($row['email'])?>'><br/><br/>
     	<label>Password*:</label><br/>
     	<input type='password' name = 'pwd1'><br/><br/>
         <label>Ripeti password*:</label><br/>

@@ -20,30 +20,35 @@
 	$PDO = new PDO($col , 'root', '');
 	//dichiarazione variabili
 	if($_POST['titolo'] === '')
-	if($_POST['nome'] === '')
     {
-    	if(is_numeric($_GET['id']))
+		$strdest = 'modEv.php?err=1&id='.$_GET['id'];
+        $strdest = rawurlencode($strdest);
+        echo substr(rawurldecode($strdest), 19);
+        if(is_numeric(substr(rawurldecode($strdest), 19)) === true)
         {
-			$strdest = 'modEv.php?err=1&id='.$_GET['id'];
-        	$strdest = rawurlencode($strdest);
         	header('location: '.rawurldecode($strdest));
+       		
         }
-        else
-        echo "error";
+   		else
+    		echo "error";
+        return;	
     }
 	else
 		$titolo = $_POST['titolo'];
 		
 	if($_POST['data'] === '')
     {
-    	if(is_numeric($_GET['id']))
+		$strdest = 'modEv.php?err=1&id='.$_GET['id'];
+        $strdest = rawurlencode($strdest);
+        echo substr(rawurldecode($strdest), 19);
+        if(is_numeric(substr(rawurldecode($strdest), 19)) === true)
         {
-			$strdest = 'modEv.php?err=1&id='.$_GET['id'];
-        	$strdest = rawurlencode($strdest);
         	header('location: '.rawurldecode($strdest));
+       		
         }
-        else
-        echo "error";
+   		else
+    		echo "error";
+       return;	
     }
 	else
 		$data = $_POST['data'];
@@ -55,14 +60,17 @@
 	
 	if($_POST['sede_id'] === '')
     {
-    	if(is_numeric($_GET['id']))
+		$strdest = 'modEv.php?err=1&id='.$_GET['id'];
+        $strdest = rawurlencode($strdest);
+        echo substr(rawurldecode($strdest), 19);
+        if(is_numeric(substr(rawurldecode($strdest), 19)) === true)
         {
-			$strdest = 'modEv.php?err=1&id='.$_GET['id'];
-        	$strdest = rawurlencode($strdest);
         	header('location: '.rawurldecode($strdest));
+
         }
-        else
-        echo "error";
+   		else
+    		echo "error";  
+       	return;	
     }
 	else
 		$sede_id = $_POST['sede_id'];
@@ -71,8 +79,8 @@
 	
 	$stmt = $PDO->prepare( 'UPDATE evento SET titolo = ?, descrizione = ?, data = ?, sede_id = ? WHERE id = ?');
 	$stmt->execute( array($titolo,$descrizione,$data, $sede_id, $_GET['id']));
-header('location: gestEv.php');
 
+header('location: gestEv.php');
 
 ?>
 </body>
